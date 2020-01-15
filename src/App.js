@@ -1,11 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Header } from "./Header/Header.js";
 import { Header2 } from "./Header/Header2.js";
 import { LocationList } from "./LocationList/LocationList.js";
 import { Footer } from "./Footer/Footer.js";
 import { PopUp } from "./PopUp/PopUp";
-import styled from 'styled-components';
+import styled from "styled-components";
 
 class App extends React.Component {
   constructor(props) {
@@ -118,6 +118,7 @@ class App extends React.Component {
 
       return json;
     } else {
+      //console.log(response);
       throw new Error("getWeather error");
     }
   }
@@ -167,30 +168,23 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        
-        <Header2 
+        <Header2
           refreshHandler={this.refreshHandler}
-          ></Header2>
+          getWeather={this.getWeather}
+        ></Header2>
 
         <LocationList
           locArray={this.state.locationArray}
           deleteCity={this.deleteCity}
-          ></LocationList>
+        ></LocationList>
 
         {this.state.popUpSeen && (
-          <PopUp
-          addCity={this.addNewCity}
-          toggle={this.togglePop}
-          ></PopUp>
-          )}
+          <PopUp addCity={this.addNewCity} toggle={this.togglePop}></PopUp>
+        )}
 
         <Counter></Counter>
 
-        <Footer 
-          isPopup={this.state.popUpSeen}
-          toggle={this.togglePop}
-          ></Footer>
-          
+        <Footer isPopup={this.state.popUpSeen} toggle={this.togglePop}></Footer>
       </div>
     );
   }
@@ -198,20 +192,23 @@ class App extends React.Component {
 
 const StyledButton = styled.button`
   background-color: gray;
-`
-
+`;
 
 function Counter() {
   const [count, setCount] = useState(0);
 
-  return( 
+  return (
     <div>
       <p>This is a counter Component, defined by using hooks!</p>
-      <StyledButton onClick={() => setCount(prevCount => ++prevCount)}>+</StyledButton>
-      <StyledButton onClick={() => setCount(prevCount => --prevCount)}>-</StyledButton>
+      <StyledButton onClick={() => setCount(prevCount => ++prevCount)}>
+        +
+      </StyledButton>
+      <StyledButton onClick={() => setCount(prevCount => --prevCount)}>
+        -
+      </StyledButton>
       <span>{count}</span>
     </div>
-  )
+  );
 }
 
 export default App;
