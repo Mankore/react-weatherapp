@@ -44,10 +44,10 @@ export function Header2(props) {
       let myInput = document.createElement("input");
       myInput.value = spanLocation.textContent;
 
-      // If pressed ENTER, blur the element
+      // If pressed ENTER / ESCAPE, blur the element
       // It triggers the next event listener, which is switching back to span
       myInput.addEventListener("keydown", e => {
-        console.log(e);
+        //console.log(e);
         if (e.key === "Enter" || e.key === "Escape") {
           myInput.blur();
         }
