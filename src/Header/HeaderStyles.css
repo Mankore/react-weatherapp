@@ -1,0 +1,49 @@
+header {
+  background-color: lightblue;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: baseline; */
+}
+
+span.location {
+  background-color: red;
+  text-align: center;
+  margin: 5px;
+}
+
+span.headTemperature {
+  background-color: yellow;
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+}
+
+.temperature::after {
+  content: "\2103";
+}
+
+header img {
+  padding: 5px 10px;
+  height: 30px;
+  width: 30px;
+}
+
+#refreshImg {
+
+  transition: all 1s;
+}
+
+#refreshBtn {
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  transition: all 1s;
+  background-color: lightblue;
+}
+
+#refreshBtn:active {
+  border-color: red;
+}
+
+
